@@ -157,7 +157,9 @@ public class PostsXPage extends MVCApplication {
         
         List<String> lstName = new ArrayList<>();
         for (String string : lstName) {
-			System.out.println(">>>>> test : " + string);
+			System.out.println(">>>>> \n");
+				System.out.println("string value = " + string);
+			System.out.println(">>>>> \n");
 		}
         
         PostHome.create(iPost, request);
