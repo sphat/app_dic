@@ -1,0 +1,47 @@
+<#include "posts_tabs.html" />
+<@tabs2 tab="posts" />
+
+<@row>
+	<@columns>
+		<@tform class='form-horizontal' action='jsp/site/Portal.jsp?page=posts'>
+			<fieldset>
+				<legend>#i18n{rokmeul.modify_posts.title}</legend>
+				<@messages errors=errors />
+				<input type="hidden" id="id" name="id" value="${posts.id}"/>
+				<input type="hidden" value="${token}" name="token" />
+
+				<@formGroup labelFor='title' labelKey='#i18n{rokmeul.modify_posts.labelTitle}' mandatory=true>
+          		<@input type='text' id='title' name='title'  maxlength=255 value='${posts.title!\'\'}' tabIndex='0' />
+				</@formGroup>
+				<@formGroup labelFor='text' labelKey='#i18n{rokmeul.modify_posts.labelText}' mandatory=true>
+          		<@input type='text' id='text' name='text'  value='${posts.text!\'\'}' tabIndex='1' />
+				</@formGroup>
+				<@formGroup labelFor='create_date' labelKey='#i18n{rokmeul.modify_posts.labelCreateDate}' mandatory=true>
+          		<@input type='text' id='create_date' name='create_date'  value='${posts.createDate!\'\'}' tabIndex='2' />
+				</@formGroup>
+				<@formGroup labelFor='update_date' labelKey='#i18n{rokmeul.modify_posts.labelUpdateDate}' mandatory=true>
+          		<@input type='text' id='update_date' name='update_date'  value='${posts.updateDate!\'\'}' tabIndex='3' />
+				</@formGroup>
+				<@formGroup labelFor='category_id' labelKey='#i18n{rokmeul.modify_posts.labelCategoryId}' mandatory=true>
+          		<@input type='text' id='category_id' name='category_id'  value='${posts.categoryId!\'\'}' tabIndex='4' />
+				</@formGroup>
+				<@formGroup labelFor='user_id' labelKey='#i18n{rokmeul.modify_posts.labelUserId}' mandatory=true>
+          		<@input type='text' id='user_id' name='user_id'  value='${posts.userId!\'\'}' tabIndex='5' />
+				</@formGroup>
+				<@formGroup labelFor='publish' labelKey='#i18n{rokmeul.modify_posts.labelPublish}' mandatory=true>
+				<@checkBox id="publish" name="publish"  value="1" checked=posts.publish!'false' tabIndex='6' />
+				</@formGroup>
+				<@formGroup labelFor='text_html' labelKey='#i18n{rokmeul.modify_posts.labelTextHtml}' mandatory=true>
+          		<@input type='text' id='text_html' name='text_html'  value='${posts.textHtml!\'\'}' tabIndex='7' />
+				</@formGroup>
+
+				<@formGroup>
+          <@button name='action_modifyPosts' type='submit' tabIndex='8' title='#i18n{portal.util.labelModify}' buttonIcon='plus' />
+          <@button name='view_managePostss' type='submit' title='#i18n{portal.util.labelCancel}' buttonIcon='close' color='btn-secondary' />
+				</@formGroup>
+        </fieldset>
+		</@tform>
+	</@columns>
+</@row>
+
+  

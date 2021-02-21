@@ -1,0 +1,378 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Plugin rokmeul",
+        "description": "Rokmeul API"
+    },
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/postss": {
+            "get": {
+                "description": "Get Posts list",
+                "tags": [
+                    "Posts"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the Posts list",
+                        "schema": {
+                            "$ref": "#/definitions/PostsListResult"
+                        }
+                    },
+                    "204": {
+                        "description": "No content",
+                        "schema": {
+                            "$ref": "#/definitions/NoContent"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create Posts",
+                "tags": [
+                    "Posts"
+                ],
+                "parameters": [
+                    {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "title",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "text",
+                        "in": "formData",
+                        "description": "text",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "create_date",
+                        "in": "formData",
+                        "description": "create_date",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "update_date",
+                        "in": "formData",
+                        "description": "update_date",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "formData",
+                        "description": "category_id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "formData",
+                        "description": "user_id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "publish",
+                        "in": "formData",
+                        "description": "publish",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "text_html",
+                        "in": "formData",
+                        "description": "text_html",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the Posts created",
+                        "schema": {
+                            "$ref": "#/definitions/PostsResult"
+                        }
+                    },
+                    "400": {
+                        "description": "Empty parameter",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/postss/{id}": {
+            "get": {
+                "description": "Get Posts",
+                "tags": [
+                    "Posts"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Posts",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the Posts",
+                        "schema": {
+                            "$ref": "#/definitions/PostsResult"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Modify Posts",
+                "tags": [
+                    "Posts"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Posts to modify",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "title",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "text",
+                        "in": "formData",
+                        "description": "text",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "create_date",
+                        "in": "formData",
+                        "description": "create_date",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "update_date",
+                        "in": "formData",
+                        "description": "update_date",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "formData",
+                        "description": "category_id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "formData",
+                        "description": "user_id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "publish",
+                        "in": "formData",
+                        "description": "publish",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "text_html",
+                        "in": "formData",
+                        "description": "text_html",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the Posts modified",
+                        "schema": {
+                            "$ref": "#/definitions/PostsResult"
+                        }
+                    },
+                    "400": {
+                        "description": "Empty parameter",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete Posts",
+                "tags": [
+                    "Posts"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Posts to delete",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return the Posts deleted (No Content)",
+                        "schema": {
+                            "$ref": "#/definitions/NoContent"
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "NoContent": {
+            "type": "object",
+            "properties": {
+                "result": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "errorCode": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "PostsListResult": {
+            "type": "object",
+            "properties": {
+                "result": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Posts"
+                    }
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "PostsResult": {
+            "type": "object",
+            "properties": {
+                "result": {
+                    "$ref": "#/definitions/Posts"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "Posts": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "create_date": {
+                    "type": "string"
+                },
+                "update_date": {
+                    "type": "string"
+                },
+                "category_id": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                },
+                "publish": {
+                    "type": "string"
+                },
+                "text_html": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

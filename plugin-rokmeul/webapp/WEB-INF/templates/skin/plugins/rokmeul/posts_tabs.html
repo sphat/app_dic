@@ -1,0 +1,9 @@
+<#macro tabs2 tab >
+<@tabs>
+	<@tabList>
+			<li <#if tab="posts">class="active"</#if>>
+				<a href="jsp/site/Portal.jsp?page=posts">#i18n{rokmeul.manage_postss.pageTitle}</a>
+			</li>
+	</@tabList>
+</@tabs>
+</#macro>

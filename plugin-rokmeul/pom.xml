@@ -1,0 +1,126 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+						http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<artifactId>lutece-global-pom</artifactId>
+		<groupId>fr.paris.lutece.tools</groupId>
+		<version>5.1.0</version>
+	</parent>
+
+
+	<properties>
+		<componentName>rokmeul</componentName>
+
+		<projectName>Rokmeul BLOG Plugin</projectName>
+		<projectVersion>1.0.0</projectVersion>
+		<environment>DEV</environment>
+		<maven.build.timestamp.format>MMddyyyyHHmm</maven.build.timestamp.format>
+		<buildNumber>${maven.build.timestamp}</buildNumber>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.rokmeul.blog.plugin</groupId>
+	<artifactId>plugin-rokmeul</artifactId>
+	<packaging>lutece-plugin</packaging>
+	<version>${projectVersion}</version>
+	<name>${projectName}</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>fr.paris.lutece</groupId>
+			<artifactId>lutece-core</artifactId>
+			<version>6.2.1</version>
+			<type>lutece-core</type>
+		</dependency>
+		<dependency>
+			<groupId>fr.paris.lutece.plugins</groupId>
+			<artifactId>plugin-rest</artifactId>
+			<version>3.1.1</version>
+			<type>lutece-plugin</type>
+		</dependency>
+		<!-- jpa-hibernate -->
+		<dependency>
+			<groupId>fr.paris.lutece.plugins</groupId>
+			<artifactId>module-jpa-hibernate</artifactId>
+			<version>1.0.7</version>
+			<type>lutece-plugin</type>
+			<exclusions>
+				<exclusion>
+					<groupId>fr.paris.lutece</groupId>
+					<artifactId>lutece-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Java library for parsing and rendering Markdown -->
+		<dependency>
+			<groupId>com.atlassian.commonmark</groupId>
+			<artifactId>commonmark</artifactId>
+			<version>0.15.0</version>
+		</dependency>
+		<!-- For unit testing -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.4</version>
+				<configuration>
+					<show>private</show>
+				</configuration>
+			</plugin>
+			<!-- POM.xml into file -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>write-project-properties</goal>
+						</goals>
+						<configuration>
+							<outputFile>${basedir}/webapp/WEB-INF/plugins/build.info</outputFile>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>lutece</id>
+			<name>luteceRepository</name>
+			<url>http://lutece.paris.fr/maven_repository</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+</project>

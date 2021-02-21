@@ -1,0 +1,40 @@
+<#include "manage_tabs.html" />
+<@tabs2 tab="post" />
+<@box>
+	<@boxHeader title='#i18n{rokmeul.manage_category.title}' boxTools=true>
+		<@tform class='form-inline pull-right' name='manage_category' action='jsp/admin/plugins/rokmeul/ManageCategory.jsp'>
+			<@button type='submit' name='view_createCategory' buttonIcon='plus' title='#i18n{rokmeul.manage_category.buttonAdd}' />
+		</@tform>
+	</@boxHeader>
+	<@boxBody>
+		<@messages infos=infos />
+		<@paginationAdmin paginator=paginator combo=1 />
+	
+			<div class="clearfix"></div>
+			<@table>
+				<tr>
+					<th>#i18n{rokmeul.manage_category.columnId}</th>
+					<th colspan="5">#i18n{rokmeul.manage_category.columnTitle}</th>
+					<th>#i18n{rokmeul.manage_category.columnStatus}</th>
+					<th>#i18n{rokmeul.manage_category.columnCreateDate}</th>
+					<th>#i18n{portal.util.labelActions}</th>
+				</tr>
+
+				<@tableHeadBodySeparator />
+
+				<#list category_list as category>
+				<tr>
+					<td>${category.id}</td>
+					<td colspan="5">${category.title}</td>
+					<td>${category.status!''}</td>
+					<td>${category.creationDate}</td>
+					<td>
+						<@aButton href='jsp/admin/plugins/rokmeul/ManageCategory.jsp?view=modifyCategory&id=${posts.id}' title='#i18n{portal.util.labelModify}' buttonIcon='pencil-square-o' />
+						<@aButton href='jsp/admin/plugins/rokmeul/ManageCategory.jsp?action=confirmRemoveCategory&id=${posts.id}' title='#i18n{portal.util.labelDelete}' buttonIcon='trash' color='btn-danger' />
+					</td>
+				</tr>
+				</#list>
+			</@table>
+		<@paginationAdmin paginator=paginator />
+	</@boxBody>
+</@box>

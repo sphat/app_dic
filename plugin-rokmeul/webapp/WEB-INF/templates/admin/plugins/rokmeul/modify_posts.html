@@ -1,0 +1,59 @@
+<#include "manage_tabs.html" />
+
+<@tabs2 tab="post" />
+<@box>
+<@boxHeader title='#i18n{rokmeul.create_posts.title}' />
+	<@boxBody> 
+		<@tform name='create_posts' action='jsp/admin/plugins/rokmeul/ManagePostss.jsp'>
+		<@messages errors=errors />
+			<input type="hidden" id="id" name="id" value="${post.id}"/>
+			<input type="hidden" value="${token}" name="token" />
+				<@formGroup labelFor='imageDisplayOnIndex' labelKey='#i18n{rokmeul.create_posts.labelCategoryId}' mandatory=true>
+					<@input type='text' id='imageDisplayOnIndex' name='imageDisplayOnIndex'  value='${post.imageDisplayOnIndex!\'\'}' tabIndex='0' />
+				</@formGroup>
+
+				<@formGroup labelFor='title' labelKey='#i18n{rokmeul.create_posts.labelTitle}' helpKey='#i18n{rokmeul.create_posts.labelTitle.help}' mandatory=true>
+					<@input type='text' id='title' name='title'  maxlength=255 value='${post.title!\'\'}' tabIndex='1' />
+				</@formGroup>
+
+				<@formGroup labelFor='text' labelKey='#i18n{rokmeul.create_posts.labelText}' helpKey='#i18n{rokmeul.create_posts.labelText.help}' mandatory=true>
+					<@aButton params='data-toggle="modal" data-target="#modalTextHtml"' class='btn-sm' buttonIcon='fas fa-code' />
+					<@input type='textarea' name='text' id='text' cols=80 rows=15 tabIndex='2'>${post.text!''}</@input>
+				</@formGroup>
+				<@modal id="modalTextHtml" bgColor="modal-info">
+					<@modalHeader modalTitle="Content in HTML" />
+					<@modalBody>
+						<@input type='textarea' name='textHtml' id='textHtml' cols=80 rows=40 tabIndex='2'>${post.textHtml!''}</@input>
+					</@modalBody>
+					<@modalFooter />
+				</@modal>
+
+				<@formGroup labelFor='headText' labelKey='#i18n{rokmeul.create_posts.labelHeadText}' helpKey='#i18n{rokmeul.create_posts.labelHeadText.help}' mandatory=true>
+					<@aButton params='data-toggle="modal" data-target="#modalHeadTextHtml"' class='btn-sm' buttonIcon='fas fa-code' />
+					<@input type='textarea' name='headText' id='headText' cols=80 rows=10 tabIndex='3'>${post.headText!''}</@input>
+				</@formGroup>
+				<@modal id="modalHeadTextHtml" bgColor="modal-info">
+					<@modalHeader modalTitle="Head Content in HTML" />
+					<@modalBody>
+						<@input type='textarea' name='headTextHtml' id='headTextHtml' cols=80 rows=40 tabIndex='2'>${post.headTextHtml!''}</@input>
+					</@modalBody>
+					<@modalFooter />
+				</@modal>
+
+				<@formGroup labelFor='displayOnIndex' labelKey='#i18n{rokmeul.create_posts.labelDisplayOnIndex}' helpKey='#i18n{rokmeul.create_posts.labelDisplayOnIndex.help}' mandatory=true>
+					<@checkBox id="displayOnIndex" name="displayOnIndex"  value="1" checked=post.displayOnIndex!'false' tabIndex='4' />
+				</@formGroup>
+
+				<@formGroup labelFor='textDisplayOnIndex' labelKey='#i18n{rokmeul.create_posts.labelTextDisplayOnIndex}' helpKey='#i18n{rokmeul.create_posts.labelTextDisplayOnIndex.help}' mandatory=true>
+					<@input type='textarea' name='textDisplayOnIndex' id='textDisplayOnIndex' cols=80 rows=10 tabIndex='5'>${post.textDisplayOnIndex!''}</@input>
+				</@formGroup>
+
+				<@formGroup labelFor='publish' labelKey='#i18n{rokmeul.create_posts.labelPublish}' helpKey='#i18n{rokmeul.create_posts.labelPublish.help}' mandatory=true>
+					<@checkBox id="publish" name="publish"  value="1" checked=post.publish!'false' tabIndex='6' />
+				</@formGroup>
+
+				<@actionButtons button1Name="action_modifyPosts" button2Name="view_managePosts" />
+		</@tform>
+	</@boxBody>
+</@box>
+

@@ -1,0 +1,40 @@
+<#include "manage_tabs.html" />
+<@tabs2 tab="post" />
+<@box>
+	<@boxHeader title='#i18n{rokmeul.manage_posts.title}' boxTools=true>
+		<@tform class='form-inline pull-right' name='manage_posts' action='jsp/admin/plugins/rokmeul/ManagePostss.jsp'>
+			<@button type='submit' name='view_createPosts' buttonIcon='plus' title='#i18n{rokmeul.manage_postss.buttonAdd}' />
+		</@tform>
+	</@boxHeader>
+	<@boxBody>
+		<@messages infos=infos />
+		<@paginationAdmin paginator=paginator combo=1 />
+	
+			<div class="clearfix"></div>
+			<@table>
+				<tr>
+					<th>#i18n{rokmeul.manage_postss.columnId}</th>
+					<th colspan="5">#i18n{rokmeul.manage_postss.columnTitle}</th>
+					<th>#i18n{rokmeul.manage_postss.columnCategoryId}</th>
+					<th>#i18n{rokmeul.manage_postss.columnCreateDate}</th>
+					<th>#i18n{portal.util.labelActions}</th>
+				</tr>
+
+				<@tableHeadBodySeparator />
+
+				<#list posts_list as posts>
+				<tr>
+					<td>${posts.id}</td>
+					<td colspan="5">${posts.title}</td>
+					<td>${posts.categoryId!''}</td>
+					<td>${posts.creationDate}</td>
+					<td>
+						<@aButton href='jsp/admin/plugins/rokmeul/ManagePostss.jsp?view=modifyPosts&id=${posts.id}' title='#i18n{portal.util.labelModify}' buttonIcon='pencil-square-o' />
+						<@aButton href='jsp/admin/plugins/rokmeul/ManagePostss.jsp?action=confirmRemovePosts&id=${posts.id}' title='#i18n{portal.util.labelDelete}' buttonIcon='trash' color='btn-danger' />
+					</td>
+				</tr>
+				</#list>
+			</@table>
+		<@paginationAdmin paginator=paginator />
+	</@boxBody>
+</@box>

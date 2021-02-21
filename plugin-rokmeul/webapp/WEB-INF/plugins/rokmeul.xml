@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<plug-in>
+	<name>rokmeul</name>
+	<class>fr.paris.lutece.portal.service.plugin.PluginDefaultImplementation
+	</class>
+	<version>1.0.0-SNAPSHOT</version>
+	<documentation></documentation>
+	<installation></installation>
+	<changes></changes>
+	<user-guide></user-guide>
+	<description>rokmeul.plugin.description</description>
+	<provider>rokmeul.plugin.provider</provider>
+	<provider-url>http://www.rokmeul.com</provider-url>
+	<icon-url>images/admin/skin/feature_default_icon.png</icon-url>
+	<copyright>rokmeul</copyright>
+	<db-pool-required>1</db-pool-required>
+
+	<core-version-dependency>
+		<min-core-version>4.1.0</min-core-version>
+		<max-core-version />
+	</core-version-dependency>
+
+	<!-- Admin features parameters -->
+	<admin-features>
+		<admin-feature>
+			<feature-id>ROKMEUL_MANAGEMENT</feature-id>
+			<feature-title>rokmeul.adminFeature.Manage.name</feature-title>
+			<feature-description>rokmeul.adminFeature.Manage.description
+			</feature-description>
+			<feature-level>0</feature-level>
+			<feature-url>jsp/admin/plugins/rokmeul/ManagePostss.jsp</feature-url>
+			<feature-icon-url></feature-icon-url>
+		</admin-feature>
+		<admin-feature>
+			<feature-id>ROKMEUL_CATEGORY_MANAGEMENT</feature-id>
+			<feature-title>rokmeul.adminFeature.Manage.category.name</feature-title>
+			<feature-description>rokmeul.adminFeature.Manage.category.description
+			</feature-description>
+			<feature-level>0</feature-level>
+			<feature-url>jsp/admin/plugins/rokmeul/ManageCategory.jsp</feature-url>
+			<feature-icon-url></feature-icon-url>
+		</admin-feature>
+	</admin-features>
+
+	<!-- XPages parameters -->
+	<applications>
+		<application>
+			<application-id>posts</application-id>
+			<application-class>fr.paris.lutece.plugins.rokmeul.web.PostsXPage
+			</application-class>
+		</application>
+	</applications>
+
+	<!-- Portlet parameters -->
+	<portlets>
+	</portlets>
+</plug-in>

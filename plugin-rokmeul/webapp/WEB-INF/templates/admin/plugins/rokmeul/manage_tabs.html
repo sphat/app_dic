@@ -1,0 +1,13 @@
+<#macro tabs2 tab >
+<@tabs>
+	<@listTabs>
+			<li <#if tab="post">class="active"</#if>>
+				<@aButton href="jsp/admin/plugins/rokmeul/ManagePostss.jsp">#i18n{rokmeul.manage_postss.pageTitle}</@aButton>
+			</li>
+			<li <#if tab="category">class="active"</#if>>
+				<@aButton href="jsp/admin/plugins/rokmeul/ManageCategory.jsp">#i18n{rokmeul.manage_category.pageTitle}</@aButton>
+			</li>
+	</@listTabs>
+</@tabs>
+
+</#macro>

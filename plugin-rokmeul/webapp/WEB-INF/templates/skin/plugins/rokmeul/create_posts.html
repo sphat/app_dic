@@ -1,0 +1,46 @@
+<#include "posts_tabs.html" />
+<@tabs2 tab="posts" />
+
+<@row>
+	<@columns>
+		<@tform class='form-horizontal' action='jsp/site/Portal.jsp?page=posts'>
+			<fieldset>
+				<legend>#i18n{rokmeul.create_posts.title}</legend>
+				<@messages errors=errors />
+				<input type="hidden" id="id" name="id"/>
+				<input type="hidden" value="${token}" name="token" />
+
+          <@formGroup labelFor='title' labelKey='#i18n{rokmeul.create_posts.labelTitle}' helpKey='#i18n{rokmeul.create_posts.labelTitle.help}' mandatory=true>
+						<@input type="text" id="title" name="title" value="${posts.title!''}"  maxlength=255 tabIndex="1" />
+					</@formGroup>
+          <@formGroup labelFor='text' labelKey='#i18n{rokmeul.create_posts.labelText}' helpKey='#i18n{rokmeul.create_posts.labelText.help}' mandatory=true>
+						<@input type="text" id="text" name="text" value="${posts.text!''}"  tabIndex="2" />
+					</@formGroup>
+          <@formGroup labelFor='create_date' labelKey='#i18n{rokmeul.create_posts.labelCreateDate}' helpKey='#i18n{rokmeul.create_posts.labelCreateDate.help}' mandatory=true>
+						<@input type="text" id="create_date" name="create_date" value="${posts.createDate!''}"  tabIndex="3" />
+					</@formGroup>
+          <@formGroup labelFor='update_date' labelKey='#i18n{rokmeul.create_posts.labelUpdateDate}' helpKey='#i18n{rokmeul.create_posts.labelUpdateDate.help}' mandatory=true>
+						<@input type="text" id="update_date" name="update_date" value="${posts.updateDate!''}"  tabIndex="4" />
+					</@formGroup>
+          <@formGroup labelFor='category_id' labelKey='#i18n{rokmeul.create_posts.labelCategoryId}' helpKey='#i18n{rokmeul.create_posts.labelCategoryId.help}' mandatory=true>
+						<@input type="text" id="category_id" name="category_id" value="${posts.categoryId!''}"  tabIndex="5" />
+					</@formGroup>
+          <@formGroup labelFor='user_id' labelKey='#i18n{rokmeul.create_posts.labelUserId}' helpKey='#i18n{rokmeul.create_posts.labelUserId.help}' mandatory=true>
+						<@input type="text" id="user_id" name="user_id" value="${posts.userId!''}"  tabIndex="6" />
+					</@formGroup>
+          <@formGroup labelFor='publish' labelKey='#i18n{rokmeul.create_posts.labelPublish}' helpKey='#i18n{rokmeul.create_posts.labelPublish.help}' mandatory=true>
+						<@checkBox id="publish" name="publish" value="1" checked=posts.publish!'false' tabIndex='6' />
+					</@formGroup>
+          <@formGroup labelFor='text_html' labelKey='#i18n{rokmeul.create_posts.labelTextHtml}' helpKey='#i18n{rokmeul.create_posts.labelTextHtml.help}' mandatory=true>
+						<@input type="text" id="text_html" name="text_html" value="${posts.textHtml!''}"  tabIndex="8" />
+					</@formGroup>
+        <@formGroup>
+          <@button name='action_createPosts' type='submit' tabIndex='8' title='#i18n{portal.util.labelCreate}' buttonIcon='plus' />
+					<@button name='view_managePostss' type='submit' title='#i18n{portal.util.labelCancel}' buttonIcon='close' color='btn-secondary' />
+				</@formGroup>
+        </fieldset>
+    </@tform>
+	</@columns>
+</@row>
+
+  
