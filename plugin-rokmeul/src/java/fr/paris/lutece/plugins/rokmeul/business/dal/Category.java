@@ -35,7 +35,8 @@ public class Category extends AbstractEntity {
     private int id;
     
     /**
-     * Category name
+     * Category name 
+     * type = string
      */
     private String name;
 
