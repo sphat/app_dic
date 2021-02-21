@@ -37,6 +37,8 @@ public class User extends AbstractEntity {
 
     private String name;
     
+    private String phone;
+    
     @Column(name = "reset_pwd", nullable = false)
     private boolean resetPwd;
 
