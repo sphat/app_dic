@@ -34,6 +34,9 @@ public class Category extends AbstractEntity {
     @Column(name = "category_id", unique = true, nullable = false)
     private int id;
     
+    /**
+     * Category name
+     */
     private String name;
 
     @Column(name = "title", nullable = false, length = 255)
