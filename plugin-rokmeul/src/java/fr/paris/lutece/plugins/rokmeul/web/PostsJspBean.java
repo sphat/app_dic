@@ -121,6 +121,22 @@ public class PostsJspBean extends AbstractManageJspBean {
 
         return getPage(PROPERTY_PAGE_TITLE_MANAGE_POSTSS, TEMPLATE_MANAGE_POSTSS, model);
     }
+    
+    /**
+     * Build the Manage View
+     * 
+     * @param request
+     *            The HTTP request
+     * @return The page
+     */
+    @View(value = VIEW_MANAGE_POSTSS, defaultView = true)
+    public String getManagePostssV1(HttpServletRequest request) {
+        iPost = null;
+        List<Post> listPostss = PostHome.findAll(request);
+        Map<String, Object> model = getPaginatedListModel(request, MARK_POSTS_LIST, listPostss, JSP_MANAGE_POSTSS);
+
+        return getPage(PROPERTY_PAGE_TITLE_MANAGE_POSTSS, TEMPLATE_MANAGE_POSTSS, model);
+    }
 
     /**
      * Returns the form to create a posts

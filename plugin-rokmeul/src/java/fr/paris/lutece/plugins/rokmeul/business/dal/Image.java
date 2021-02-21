@@ -21,11 +21,14 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "rokmeul_image")
-@NoArgsConstructor
 public class Image extends AbstractEntity {
 
     private static final long serialVersionUID = 5344638074502495761L;
 
+    public Image() {
+    	// no param constructor
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "image_id", unique = true, nullable = false)
