@@ -33,6 +33,12 @@ public class Category extends AbstractEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id", unique = true, nullable = false)
     private int id;
+    
+    /**
+     * Category name 
+     * type = string
+     */
+    private String name;
 
     @Column(name = "title", nullable = false, length = 255)
     private String title;
@@ -46,4 +52,10 @@ public class Category extends AbstractEntity {
     // references
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
     private Set<Post> posts = new HashSet<>(0);
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+    
+    
 }
