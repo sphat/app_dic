@@ -34,9 +34,13 @@
 
 package fr.paris.lutece.plugins.rokmeul.web;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+
+import com.mysql.fabric.xmlrpc.base.Array;
 
 import fr.paris.lutece.plugins.rokmeul.business.dal.Post;
 import fr.paris.lutece.plugins.rokmeul.business.dao.PostHome;
@@ -150,6 +154,12 @@ public class PostsXPage extends MVCApplication {
             return redirectView(request, VIEW_CREATE_POSTS);
         }
 
+        
+        List<String> lstName = new ArrayList<>();
+        for (String string : lstName) {
+			System.out.println(">>>>> test : " + string);
+		}
+        
         PostHome.create(iPost, request);
         addInfo(INFO_POSTS_CREATED, getLocale(request));
 
