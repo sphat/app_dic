@@ -35,8 +35,14 @@ public class User extends AbstractEntity {
     @Column(name = "user_id", unique = true, nullable = false)
     private int id;
 
+    /**
+     * User name
+     */
     private String name;
     
+    /**
+     * mobile phone number
+     */
     private String phone;
     
     @Column(name = "reset_pwd", nullable = false)
